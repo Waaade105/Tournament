@@ -22,6 +22,8 @@ namespace Tournament.Data
 
 
 
+
+
         //List<Team> _teams;
 
 
@@ -48,6 +50,22 @@ namespace Tournament.Data
             throw new NotImplementedException();
         }
 
+        void ITournamentRepo.CreateTeam(Team team)
+        {
+            throw new NotImplementedException();
+        }
 
+
+
+
+        public IEnumerable<Game> GetAllPlayedGames()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Game GetGame(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -14,6 +14,10 @@ namespace Tournament.Data
         void CreateTeam(Team team); // na razie void
 
 
+        Game GetGame(int id);
+        IEnumerable<Game> GetAllPlayedGames();
+
+
 
     }
 }

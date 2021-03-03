@@ -8,24 +8,34 @@ namespace Tournament.Models
 {
     public class Game
     {
+        
         public int ID { get; set; }
         [Required]
-        public DateTime  Date { get; set; } // zmienna datowa
+        public DateTime  Date { get; set; } 
         [Required]
-        public Team teamA { get; set; }
+        public int Team_A { get; set; }
+        //public Team TeamA { get; set; }    //TeamA czytalo do bazy tylko TeamAID = 1 np. i w api zwracalo nulle // chyba dlatego ze obiekt 
         [Required]
-        public Team teamB { get; set; }
+        public int Team_B { get; set; }
+
+        //public Team TeamB { get; set; }
         [Required]
         public int TeamA_score { get; set; }
         [Required]
         public int TeamB_score { get; set; }
-        public Team Winner { get; set; } // automat zrobic   // losowanie druzyn zrobic
+        public int Winner { get; set; } // automat zrobic   // losowanie druzyn zrobic
 
         //public List<int> GameResult { get; set; }
         public Game()
         {
 
         }
+        //public Game(int id, DateTime date)
+        //{
+        //    this.ID = ID;
+        //    teamA = tea
+
+        //}
 
     }
 }

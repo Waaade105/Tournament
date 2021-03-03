@@ -13,9 +13,9 @@ namespace Tournament.Migrations
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false),
-                    Coach = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false),
-                    State = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Coach = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    State = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -29,49 +29,38 @@ namespace Tournament.Migrations
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    teamAID = table.Column<int>(type: "int", nullable: true),
-                    teamBID = table.Column<int>(type: "int", nullable: true),
+                    Team_AID = table.Column<int>(type: "int", nullable: true),
+                    Team_BID = table.Column<int>(type: "int", nullable: true),
                     TeamA_score = table.Column<int>(type: "int", nullable: false),
                     TeamB_score = table.Column<int>(type: "int", nullable: false),
-                    WinnerID = table.Column<int>(type: "int", nullable: true)
+                    Winner = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Games", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_Games_Teams_teamAID",
-                        column: x => x.teamAID,
+                        name: "FK_Games_Teams_Team_AID",
+                        column: x => x.Team_AID,
                         principalTable: "Teams",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Games_Teams_teamBID",
-                        column: x => x.teamBID,
-                        principalTable: "Teams",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Games_Teams_WinnerID",
-                        column: x => x.WinnerID,
+                        name: "FK_Games_Teams_Team_BID",
+                        column: x => x.Team_BID,
                         principalTable: "Teams",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Games_teamAID",
+                name: "IX_Games_Team_AID",
                 table: "Games",
-                column: "teamAID");
+                column: "Team_AID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Games_teamBID",
+                name: "IX_Games_Team_BID",
                 table: "Games",
-                column: "teamBID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Games_WinnerID",
-                table: "Games",
-                column: "WinnerID");
+                column: "Team_BID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

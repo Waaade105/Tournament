@@ -10,8 +10,8 @@ using Tournament.Data;
 namespace Tournament.Migrations
 {
     [DbContext(typeof(TournamentContext))]
-    [Migration("20210228143416_Initial")]
-    partial class Initial
+    [Migration("20210303213037_Game_Changed_Team_Props")]
+    partial class Game_Changed_Team_Props
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -37,22 +37,16 @@ namespace Tournament.Migrations
                     b.Property<int>("TeamB_score")
                         .HasColumnType("int");
 
-                    b.Property<int?>("WinnerID")
+                    b.Property<int>("Team_A")
                         .HasColumnType("int");
 
-                    b.Property<int?>("teamAID")
+                    b.Property<int>("Team_B")
                         .HasColumnType("int");
 
-                    b.Property<int?>("teamBID")
+                    b.Property<int>("Winner")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
-
-                    b.HasIndex("WinnerID");
-
-                    b.HasIndex("teamAID");
-
-                    b.HasIndex("teamBID");
 
                     b.ToTable("Games");
                 });
@@ -66,43 +60,22 @@ namespace Tournament.Migrations
 
                     b.Property<string>("Coach")
                         .IsRequired()
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("State")
                         .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasMaxLength(25)
+                        .HasColumnType("nvarchar(25)");
 
                     b.HasKey("ID");
 
                     b.ToTable("Teams");
-                });
-
-            modelBuilder.Entity("Tournament.Models.Game", b =>
-                {
-                    b.HasOne("Tournament.Models.Team", "Winner")
-                        .WithMany()
-                        .HasForeignKey("WinnerID");
-
-                    b.HasOne("Tournament.Models.Team", "teamA")
-                        .WithMany()
-                        .HasForeignKey("teamAID");
-
-                    b.HasOne("Tournament.Models.Team", "teamB")
-                        .WithMany()
-                        .HasForeignKey("teamBID");
-
-                    b.Navigation("teamA");
-
-                    b.Navigation("teamB");
-
-                    b.Navigation("Winner");
                 });
 #pragma warning restore 612, 618
         }

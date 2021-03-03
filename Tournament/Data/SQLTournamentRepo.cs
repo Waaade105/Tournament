@@ -15,8 +15,21 @@ namespace Tournament.Data
         {
             _context = context;
         }
-
         
+        public bool SaveChanges()
+        {
+            return (_context.SaveChanges() >= 0);
+        }
+        
+        //Team methods
+        public Team GetTeam(int id)
+        {
+            return _context.Teams.FirstOrDefault(t => t.ID == id);
+        }
+        public IEnumerable<Team> GetTeams()
+        {
+            return _context.Teams.ToList();
+        }
 
         public void CreateTeam(Team team)
         {
@@ -29,21 +42,18 @@ namespace Tournament.Data
         }
 
 
-        public Team GetTeam(int id)
+
+
+        public Game GetGame(int id)
         {
-            return _context.Teams.FirstOrDefault(t => t.ID == id);
+            return _context.Games.FirstOrDefault(g => g.ID == id);
         }
 
-        public IEnumerable<Team> GetTeams()
+        public IEnumerable<Game> GetAllPlayedGames()
         {
-            return _context.Teams.ToList();
+            return _context.Games.ToList();
         }
 
-        public bool SaveChanges()
-        {
-            return (_context.SaveChanges() >= 0 );
-            
-            
-        }
+
     }
 }
