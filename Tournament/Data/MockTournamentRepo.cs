@@ -4,68 +4,84 @@ using System.Linq;
 using System.Threading.Tasks;
 using Tournament.Models;
 
-namespace Tournament.Data
+/*namespace Tournament.Data
 {
-    public class MockTournamentRepo : ITournamentRepo
-    {
-        List<Team> _teams = new List<Team>()
-        {
-            new Team(){ID = 1 , Name = "LA Lakers", Coach = "XY", State = "California"},
-            new Team(){ID = 2 , Name = "LA Clippers", Coach = "XYZ", State = "California"},
+   public class MockTournamentRepo : ITournamentRepo
+   {
+       List<Team> _teams = new List<Team>()
+       {
+           new Team(){ID = 1 , Name = "LA Lakers", Coach = "XY", State = "California"},
+           new Team(){ID = 2 , Name = "LA Clippers", Coach = "XYZ", State = "California"},
 
-        };
+       };
 
-        public Team CreateTeam(Team team)
-        {
-            throw new NotImplementedException();
-        }
-
-
-
-
-
-        //List<Team> _teams;
-
-
-        public Team GetTeam(int id)
-        {
-            return _teams.FirstOrDefault(t => t.ID == id);
-            //return new Team() { ID = 1, Name = "LA Lakers", Coach = "XY", State = "California" };
-        }
-
-        public IEnumerable<Team> GetTeams()
-        {
-            return _teams;
-
-            //var teams = new List<Team>()
-            //{
-            //    new Team(){ID = 1 , Name = "LA Lakers", Coach = "XY", State = "California"},
-            //};
-
-            //return teams;
-        }
-
-        public bool SaveChanges()
-        {
-            throw new NotImplementedException();
-        }
-
-        void ITournamentRepo.CreateTeam(Team team)
-        {
-            throw new NotImplementedException();
-        }
+       public Team CreateTeam(Team team)
+       {
+           throw new NotImplementedException();
+       }
 
 
 
 
-        public IEnumerable<Game> GetAllPlayedGames()
-        {
-            throw new NotImplementedException();
-        }
 
-        public Game GetGame(int id)
-        {
-            throw new NotImplementedException();
-        }
-    }
+       //List<Team> _teams;
+
+
+       public Team GetTeam(int id)
+       {
+           return _teams.FirstOrDefault(t => t.ID == id);
+           //return new Team() { ID = 1, Name = "LA Lakers", Coach = "XY", State = "California" };
+       }
+
+       public IEnumerable<Team> GetTeams()
+       {
+           return _teams;
+
+           //var teams = new List<Team>()
+           //{
+           //    new Team(){ID = 1 , Name = "LA Lakers", Coach = "XY", State = "California"},
+           //};
+
+           //return teams;
+       }
+
+       public bool SaveChanges()
+       {
+           throw new NotImplementedException();
+       }
+
+       void ITournamentRepo.CreateTeam(Team team)
+       {
+           throw new NotImplementedException();
+       }
+
+
+
+
+       public IEnumerable<Game> GetAllPlayedGames()
+       {
+           throw new NotImplementedException();
+       }
+
+       public Game GetGame(int id)
+       {
+           throw new NotImplementedException();
+       }
+
+       public void UpdateTeam(Team team)
+       {
+           throw new NotImplementedException();
+       }
+
+       public void PartialUpdateTeam(Team team)
+       {
+           throw new NotImplementedException();
+       }
+
+       public void DeleteTeam(Team team)
+       {
+           throw new NotImplementedException();
+       }
+   }
 }
+*/

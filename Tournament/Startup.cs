@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Tournament.Data;
+using Newtonsoft.Json.Serialization;
 
 namespace Tournament
 {
@@ -31,12 +32,16 @@ namespace Tournament
             services.AddDbContext<TournamentContext>(options => 
                                                     options.UseSqlServer(Configuration.GetConnectionString("TournamentConnection")));
             // !!!!!!!!!
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(s =>
+                                                           {
+                                                               s.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                                                           });
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             //services.AddScoped<ITournamentRepo, MockTournamentRepo>();
             services.AddScoped<ITournamentRepo, SQLTournamentRepo>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

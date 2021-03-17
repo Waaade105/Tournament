@@ -13,6 +13,7 @@ namespace Tournament.Profiles
         public GamesProfile()
         {
             CreateMap<Game, GameReadDto>();
+            CreateMap<GameCreateUpdateDto, GameReadDto>();
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tournament.DTOs
 {
-    public class TeamCreateDto
+    public class TeamCreateUpdateDto
     {
         [Required]
         [MaxLength(50)]

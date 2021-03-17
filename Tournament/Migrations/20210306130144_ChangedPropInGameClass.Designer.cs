@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Tournament.Data;
 
 namespace Tournament.Migrations
 {
     [DbContext(typeof(TournamentContext))]
-    partial class TournamentContextModelSnapshot : ModelSnapshot
+    [Migration("20210306130144_ChangedPropInGameClass")]
+    partial class ChangedPropInGameClass
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,9 +31,6 @@ namespace Tournament.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("NumberOfSpectators")
-                        .HasColumnType("int");
-
                     b.Property<int>("TeamA_score")
                         .HasColumnType("int");
 
@@ -44,7 +43,7 @@ namespace Tournament.Migrations
                     b.Property<int?>("Team_BID")
                         .HasColumnType("int");
 
-                    b.Property<int?>("WinnerID")
+                    b.Property<int>("Winner")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
@@ -52,8 +51,6 @@ namespace Tournament.Migrations
                     b.HasIndex("Team_AID");
 
                     b.HasIndex("Team_BID");
-
-                    b.HasIndex("WinnerID");
 
                     b.ToTable("Games");
                 });
@@ -95,15 +92,9 @@ namespace Tournament.Migrations
                         .WithMany()
                         .HasForeignKey("Team_BID");
 
-                    b.HasOne("Tournament.Models.Team", "Winner")
-                        .WithMany()
-                        .HasForeignKey("WinnerID");
-
                     b.Navigation("Team_A");
 
                     b.Navigation("Team_B");
-
-                    b.Navigation("Winner");
                 });
 #pragma warning restore 612, 618
         }

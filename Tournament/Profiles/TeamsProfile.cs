@@ -13,7 +13,8 @@ namespace Tournament.Profiles
         public TeamsProfile()
         {
             CreateMap<Team, TeamReadDto>();
-            CreateMap<TeamCreateDto, Team>();
+            CreateMap<TeamCreateUpdateDto, Team>();
+            CreateMap<Team, TeamCreateUpdateDto>();
         }
     }
 }

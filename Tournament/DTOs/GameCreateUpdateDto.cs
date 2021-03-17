@@ -7,7 +7,7 @@ using Tournament.Models;
 
 namespace Tournament.DTOs
 {
-    public class GameReadDto
+    public class GameCreateUpdateDto
     {
         public int Id { get; set; }
         [Required]

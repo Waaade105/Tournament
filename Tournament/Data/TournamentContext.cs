@@ -9,6 +9,9 @@ namespace Tournament.Data
 {
     public class TournamentContext : DbContext
     {
+
+
+
         public TournamentContext(DbContextOptions<TournamentContext> options) : base(options)
         {
 

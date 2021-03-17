@@ -12,10 +12,15 @@ namespace Tournament.Data
         Team GetTeam(int id);
         IEnumerable<Team> GetTeams();
         void CreateTeam(Team team); // na razie void
+        void UpdateTeam(Team team);
+        void PartialUpdateTeam(Team team);
+        void DeleteTeam(Team team);
 
-
+        //GAME
         Game GetGame(int id);
         IEnumerable<Game> GetAllPlayedGames();
+        void CreateGame(Game game);
+        void DeleteGame(Game game);
 
 
 
